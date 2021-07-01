@@ -1,7 +1,8 @@
 import { Children } from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import { AppRegistry } from 'react-native'
-import config from '../app.json'
+import config from '../../app.json'
+
 // Force Next-generated DOM elements to fill their parent's height
 const normalizeNextElements = `
   #__next {
@@ -11,9 +12,10 @@ const normalizeNextElements = `
   }
 `
 
-export default class MyDocument extends Document {
+export default class MyDocument extends NextDocument {
   static async getInitialProps({ renderPage }) {
     AppRegistry.registerComponent(config.name, () => Main)
+    // @ts-ignore
     const { getStyleElement } = AppRegistry.getApplication(config.name)
     const page = await renderPage()
     const styles = [
