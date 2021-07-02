@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  NativeBaseProvider,
   Center,
   useColorMode,
   Tooltip,
@@ -17,11 +16,9 @@ import {
   Button,
   AspectRatio,
 } from "native-base";
-import { theme } from "../theme";
 
 // Start editing here, save and see your changes.
-
-function Root() {
+export default function App() {
   return (
     <Center
       flex={1}
@@ -77,7 +74,6 @@ function Root() {
     </Center>
   );
 }
-
 // Color Switch Component
 function ColorModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -100,10 +96,4 @@ function ColorModeSwitch() {
   );
 }
 
-export default function App() {
-  return (
-    <NativeBaseProvider theme={theme}>
-      <Root />
-    </NativeBaseProvider>
-  );
-}
+
